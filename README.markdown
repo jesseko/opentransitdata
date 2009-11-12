@@ -39,7 +39,7 @@ The top-level `urls.py` file simply loads URLs from `opentransit/urls.py`. Any t
 
 We also have top-level `static` and `templates` directories. The `static` directory is for truly static files, like images, javascript, and CSS. You can reference these cleanly in your django templates with `{% static_url /images/foo.png %}`. The `templates` directory contains Django 1.1-syntax templates. I put in an example `base.html`	and `home.html` file which makes use of Django's `{% extends ... %}` template tag. This is the way most people do things with Django but it is by no means required. These are example files only!
 
-So, again, everything interesting code-wise is going to be under the `opentransit/` subdirectory. Most interesting are `views.py`, where you put your view functions, and `models.py`, where you put your AppEngine model classes. Easy, right? `forms.py` might also be interesting we decide to use Django forms to handle our petition, etc.
+So, again, everything interesting code-wise is going to be under the `opentransit/` subdirectory. Most interesting are `views.py`, where you put your view functions, and `models.py`, where you put your AppEngine model classes. Easy, right? `forms.py` might also be interesting if we decide to use Django forms to handle our petition, etc. Django forms are not required, but they're easy to work with. I already added a petition example just to get us going.
 
 I have also added a bunch of "helper" code in case we want to do more interesting things. Included in the `opentransit` directory are:
 
