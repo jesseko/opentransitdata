@@ -1,0 +1,26 @@
+<!-- NOTE DAEVPECK: THIS IS JUST AN EXAMPLE. THROW IT AWAY OR USE IT AS YOU SEE FIT. -->
+
+<html>
+<head>
+<title>[{% block title %}open transit{% endblock %}]</title>
+<link rel="stylesheet" href="{% static_url /css/screen.css %}" type="text/css" media="screen" />
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        {% block header %}
+            <a href="{% url home %}">
+                <!-- here is an example use of the static_url tag -->
+                <img src="{% static_url /images/otd-example-logo.png %}" alt="Example Image" />
+            </a>
+        {% endblock %}
+    </div>        
+    
+    <div class="content">
+        {% block content %}&nbsp;{% endblock %}
+    </div>
+</div>
+
+</body>
+</html>
