@@ -3,8 +3,9 @@ from .utils import render_to_response, redirect_to, not_implemented, login_requi
 from .models import ExamplePetitionModel
 from django.http import HttpResponseRedirect
 
-def home(request): 
-    return render_to_response(request, 'home.html')   
+def home(request):
+    num_petitions = ExamplePetitionModel.all().count()
+    return render_to_response(request, 'home.html', {'num_petitions': num_petitions})   
     
 def example_petition_form(request):
     # This example page handles the petition form!
@@ -23,7 +24,8 @@ def example_petition_form(request):
             model.put()
             return redirect_to('example_petition_success')
     else:
-        form = ExamplePetitionForm()        
+        form = ExamplePetitionForm()
+        
     return render_to_response(request, 'example_petition_form.html', {'form': form})
 
 def example_petition_success(request):
