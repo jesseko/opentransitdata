@@ -8,3 +8,17 @@ class ExamplePetitionModel(db.Model):
     city = db.StringProperty()
     state = db.StringProperty()
     country = db.StringProperty()
+    
+class Agency(db.Model):
+    name = db.StringProperty()
+    tier = db.IntegerProperty()
+    city = db.StringProperty()
+    state = db.StringProperty()
+    country = db.StringProperty()
+    postal_code = db.IntegerProperty()
+    agency_url = db.LinkProperty()
+    executive = db.StringProperty()
+    executive_email = db.EmailProperty()
+    twitter = db.StringProperty()
+    contact_email = db.EmailProperty()
+    updated = db.DateTimeProperty()
