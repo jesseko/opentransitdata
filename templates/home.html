@@ -1,10 +1,126 @@
 {% extends 'base.html' %}
 
-{% block title %}open transit!!!.{% endblock %}
-
 {% block content %}
-    <!-- NOTE DAEVPECK: THIS IS JUST AN EXAMPLE. THROW IT AWAY OR USE IT AS YOU SEE FIT. -->
-    <h2>You&apos;ve found the <strong>opentransit</strong> home page!</h2>
-    <p><a href="{% url example_petition_form %}">Click to go to to an example petition form page...</a></p>
-    {{ num_petitions }} already signed
+	<div id="left-col">
+	  <div id="no-data-list">
+	    <h4>531 agencies</h4>
+	    <h3>NO PUBLIC DATA</h3>
+	    <ol>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	      <li>
+	        <h5>New York MTA</h5>
+	        <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+	          CEO: Jay H Walter</p>
+	      </li>
+	    </ol>
+	    <p><a href="">View all</a><br />
+	    Transit agency? <a href="">How to get off this list</a></p>
+	  </div>
+  
+    <div id="recently-added-list">
+      <h4>43 agencies</h4>
+      <h3>RECENTLY MADE PUBLIC</h3>
+      <ol>
+        <li>
+          <h5>Chicago</h5>
+          <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+            CEO: Jay H Walter</p>
+        </li>
+        <li>
+          <h5>Cleveland</h5>
+          <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+            CEO: Jay H Walter</p>
+        </li>
+        <li>
+          <h5>Kansas City</h5>
+          <p><a href="">email</a> twitter: @nytsubwayscoop<br />
+            CEO: Jay H Walter</p>
+        </li>
+      </ol>
+      <p><a href="">View all</a></p>
+    </div>
+	</div>
+  <div id="middle-col">
+	  <div id="petition">
+	    <h4>3972 signatures</h4>
+	    <h3>DEMAND PUBLIC DATA</h3>
+	    <p>Add your signature to an open letter demanding open transit data so programmers can create innovative transit apps.<br />
+	      <br />
+	      <a href="">Read the full letter</a></p>
+	    <p>---form here---</p>
+	    <p class="p2">After signing you will receive occasional updates about transportation issues from Front Seat</p>
+	    <p><a href="">View all signatures</a></p>
+	    <p>---signature updates---</p>
+	  </div>
+  </div>
+  <div id="right-col">
+    <div id="app-gallery">
+      <h4>27 transit apps</h4>
+      <h3>TRANSIT APP GALLERY</h3>
+      <p>Public transit data makes apps like these possible:</p>
+      <div class="app-scroller">
+        <h6>Previous 3</h6>
+        <div id="app-scroll-content">
+          <div class="scroll-item"> <a href=""><img src="{% static_url /images/appthumbs/app1.gif %}" /></a>
+            <h5><a href="">Walk Score</a></h5>
+            <p>Walk Score uses open transit data to show transit stops near a home.</p>
+          </div>
+          <div class="scroll-item"> <a href=""><img src="{% static_url /images/appthumbs/app2.gif %}" /></a>
+            <h5><a href="">Walk Score</a></h5>
+            <p>Walk Score uses open transit data to show transit stops near a home.</p>
+          </div>
+          <div class="scroll-item"> <a href=""><img src="{% static_url /images/appthumbs/app3.gif %}" /></a>
+            <h5><a href="">Walk Score</a></h5>
+            <p>Walk Score uses open transit data to show transit stops near a home.</p>
+          </div>
+        </div>
+        <h6>Next 3</h6>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
