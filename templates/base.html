@@ -1,26 +1,26 @@
-<!-- NOTE DAEVPECK: THIS IS JUST AN EXAMPLE. THROW IT AWAY OR USE IT AS YOU SEE FIT. -->
-
 <html>
 <head>
-<title>[{% block title %}open transit{% endblock %}]</title>
-<link rel="stylesheet" href="{% static_url /css/screen.css %}" type="text/css" media="screen" />
+<title>[{% block title %}Open Transit Data{% endblock %}]</title>
+<link rel="stylesheet" type="text/css" href="{% static_url /css/main.css %}" media="screen" />
 </head>
 <body>
-
-<div class="container">
-    <div class="header">
-        {% block header %}
-            <a href="{% url home %}">
-                <!-- here is an example use of the static_url tag -->
-                <img src="{% static_url /images/otd-example-logo.png %}" alt="Example Image" />
-            </a>
-        {% endblock %}
-    </div>        
-    
-    <div class="content">
-        {% block content %}&nbsp;{% endblock %}
-    </div>
+<div id="header">
+  {% block header %}
+	  <h1><a href="{% url home %}">Open Transit Data</a></h1>
+	  <h2>Make public data public</h2>
+	  <p id="nav"><a href="">Blog</a> &nbsp; <a href="">About</a> &nbsp; <a href="">FAQ</a> &nbsp; <a href="">Contact</a></p>
+  {% endblock %}
+</div>
+<div id="lede">
+	{% block lede %}
+  	<p>There are 574 transit agencies in the U.S., but only 43 make their data available to the public. <a href="">What's in it for me?</a></p>
+  {% endblock %}
 </div>
 
+<div id="outer-wrapper">{% block content %} &nbsp; {% endblock %}</div>
+<div id="footer">
+	<a id="front-seat-logo" href="http://www.frontseat.org"><img src="{% static_url /images/front-seat-logo.gif %}" /></a>
+	<a id="gtfs-data-exchange-logo" href="http://www.gtfs-data-exchange.com/"><img src="{% static_url /images/gtfs-data-exchange-logo.gif %}" /></a>
+</div>
 </body>
 </html>
