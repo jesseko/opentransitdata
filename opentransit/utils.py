@@ -21,6 +21,7 @@ from django.utils.http import urlquote
 from django.template import RequestContext
 import django.shortcuts
 from django.conf import settings
+import simplejson as json
 
 try:
     from functools import update_wrapper
@@ -240,3 +241,22 @@ def deserialize_dictionary(string, secret_key=settings.SERIALIZATION_SECRET_KEY)
         else:
             items = None
     return items
+    
+##############
+# Misc Helpers
+##############
+
+from google.appengine.api.urlfetch import fetch
+from datetime import datetime
+def get_spreadsheet(key, worksheetId):
+    """ gets helpfully formatted data from a google spreadsheet """
+    
+    jsondata = json.loads( fetch( "http://spreadsheets.google.com/feeds/list/%s/%s/public/values?alt=json"%(key,worksheetId) ).content )
+
+    for entry in jsondata["feed"]["entry"]:
+        updated_str = entry['updated']['$t'] 
+        updated = datetime.strptime( updated_str[:updated_str.index(".")] , "%Y-%m-%dT%H:%M:%S")
+        
+        data = dict( [ (k[4:], v['$t']) for k, v in entry.items() if "gsx$" in k ] )
+            
+        yield {'updated':updated, 'data':data}
