@@ -4,13 +4,14 @@
 #
 
 import django.template as djangot
+from django.conf import settings
 from google.appengine.ext.webapp import template
 
 register = template.create_template_register()
 
 
 #------------------------------------------------------------------------------
-# "Static URLs." -- mostly interesting for the future...
+# "Static URLs."
 #------------------------------------------------------------------------------
 
 # Pointer to static media _for our site_ (like our js/css/images)
@@ -31,8 +32,30 @@ class StaticUrlNode(djangot.Node):
 
 
 #------------------------------------------------------------------------------
+# "Django Debug" -- an if statement that is true if we're on debug mode
+#------------------------------------------------------------------------------
+
+@register.tag(name="if_django_debug")
+def if_django_debug(parser, token):
+    nodelist = parser.parse(('end_if_django_debug',))
+    parser.delete_first_token()
+    return IfDjangoDebugNode(nodelist)
+
+class IfDjangoDebugNode(djangot.Node):
+    def __init__(self, nodelist):
+        self.nodelist = nodelist
+        
+    def render(self, context):
+        if settings.DEBUG:
+            return self.nodelist.render(context)
+        else:
+            return ""
+
+#------------------------------------------------------------------------------
 # "Partial" template; currently VERY HACKNOLOGICAL, but it works. Should be hella cleaned.
 #------------------------------------------------------------------------------
+
+# NOTE WELL -- THIS CODE IS HACKNOLOGY -- have been meaning to clean it up.
 
 @register.tag(name="partial")
 def partial(parser, token):
