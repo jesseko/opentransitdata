@@ -3,7 +3,7 @@
 	pre,code,address,caption,cite,code,em,strong,th { font-size: 1em; font-weight: normal; font-style: normal; }
 	h1,h2,h3,h4,h5,h6,strong { font-weight: bold; margin: 0; padding: 0; }
 	cite, em { font-style:italic; }
-	ul, ol { margin: 0px 0px 8px 20px; }
+	ul, ol { margin: 0 0 0 20px; }
 	fieldset,img { border: 0; }
 	caption,th { text-align: left; }
 	table { border-collapse: collapse; border-spacing: 0; }
@@ -22,7 +22,7 @@
 		cursor: pointer;
 		overflow: hidden;
 	}
-	div.clickable label {
+	div.clickable label, div.clickable2 label {
 		color: #cf7200;
 		line-height: 12px;
 		display: block;
@@ -61,14 +61,14 @@
 	h3 {
 		font:21px/21px "Arial Black", Helvetica, sans-serif;
 		font-weight: normal; 
-		margin:  0 0 7px 0;
+		margin:  0 0 5px 0;
 		padding: 0;
 	}
 	h4 {
 		font-size:14px;
 		line-height: 14px;
 		font-weight: normal;
-		margin:  0;
+		margin-top:  14px;
 		padding: 0;
 	}
 	h5 {
@@ -90,8 +90,8 @@
 	#recently-added-list h4 { color: #516d57; }
 	
   p, ul, ol, blockquote, label {
-		font:12px Verdana, Arial, Helvetica, sans-serif;
-		color: #444;
+		font:12px/16px Verdana, Arial, Helvetica, sans-serif;
+		color: #555;
 	}
 	ul, ol {
 		padding-left: 5px;
@@ -101,6 +101,9 @@
 	}
 	cite {
 		font-weight: bold;
+	}
+	.body-content p, p.body {
+		margin: 4px 0 8px 0;
 	}
 	
 
@@ -133,7 +136,6 @@
 	#lede {
 		background-color: #c6e6f2;
 		width: 100%;
-		margin-bottom: 10px;
 	}
 	#outer-wrapper {
 		margin: 0px auto 0 auto;
@@ -197,35 +199,74 @@
 	#friends-and-followers div {
 		float:left;
 		white-space: nowrap;
-		margin: 2px;
+		margin-right: 4px;
 		width: 85px;
-		height: 28px;
-		overflow: hidden;
+		padding: 3px 4px 2px 0;
 	}
-	#friends-and-followers div div {
-		width: 22px;
-		height: 22px;
-		float: left;
-		margin: 3px 4px 2px 3px; 
-		border: 0;
-	}
-	#friends-and-followers div p {
-		padding-top: 4px;
+	#friends-and-followers div label {
+		padding: 4px 0 0 29px;
+		margin-left: 3px;
+		height: 18px;
 		color: #999;
 		font-size: 11px;
 	}
-	#friends-and-followers div div.friend-facebook { background: url(/images/otd-icons.png) 0 0 no-repeat; }
-	#friends-and-followers div div.friend-twitter { background: url(/images/otd-icons.png) 0 -22px no-repeat; }
+	#friends-and-followers div.friend-facebook label { background: url(/images/otd-icons.png) 0 0 no-repeat; }
+	#friends-and-followers div.friend-twitter label { background: url(/images/otd-icons.png) 0 -22px no-repeat; }
 	
+/*********** LISTS ****************/
+
+	.agency-list {
+		color: #cf7200;
+	}
+	.agency-list h5 {
+		font: 12px/13px Verdana, Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		padding-bottom: 0;
+		margin: 0;
+	}
+	.agency-list p {
+		font: 11px/14px Verdana, Arial, Helvetica, sans-serif;
+		color: #777;
+	}
+	.agency-list p a {
+		color: #777;
+	}
+	.agency-list p a:hover {
+		color: #028dc7;
+	}
+	.agency-list li {
+		margin-bottom: 5px;
+	}
+
 /*********** LEDE ****************/
 	
 	#lede p {
-		margin: 0px auto 0 auto;
+		margin: 0 auto 0 auto;
 		width: 950px;
 		font-style: italic;
 		font: 14px/14px;
 		padding: 3px 0 6px 0;
 	}	
+
+/*********** PETITION FORM ****************/
+
+	#petition-form blockquote {
+		margin: 8px 15px 12px 0;
+		font-style: italic;
+		display: block;
+	}
+	#petition-form th {
+		width: 70px;
+	}
+	#petition-form table input {
+		height: 18px;
+		font: 12px/12px Verdana, Arial, Helvetica, sans-serif;
+		margin-bottom: 2px;
+		border: 1px solid #999;
+	}
+	#petition-form .button {
+		margin: 8px 0 6px 75px;
+	}
 
 /*********** APP GALLERY ****************/
 	
@@ -244,11 +285,12 @@
 	#app-gallery #down-control label { background: url(/images/otd-icons.png) 0 -78px no-repeat; }
 	#app-gallery #down-control:hover label { background-position: 0 -102px; }
 	
-	#app-gallery .scroll-item { 
+	#app-gallery .scroll-item, #app-gallery .scroll-item-first { 
 		clear: both;
 		margin-top: 10px;
+		min-height: 80px;
 	}
-	#app-gallery .first {
+	#app-gallery .scroll-item-first {
 		margin-top: 0;
 	} 
 	#app-gallery img { 
@@ -265,7 +307,7 @@
 		background: url(/images/button-view-the-app-gallery.png) 0 0 no-repeat;
 		width: 151px;
 		height: 23px;
-		margin-top: 10px;
+		margin-top: 3px;
 		cursor: pointer;
 	}
 	
@@ -295,6 +337,10 @@
 	.tweet label {
 		float: right;
 		color: #999;
+		font-size:  11px;
+	}
+	.tweet blockquote {
+		color: #666;
 		font-size:  11px;
 	}
 		
