@@ -90,6 +90,7 @@
 	    <h3>DEMAND PUBLIC DATA</h3>
 	    {% include "petition-form.html" %}
 	    <p class="p2">After signing you will receive occasional updates about transportation issues from Front Seat</p>
+	    <p><a href="">Tweet a comment</a> that includes opentransitdata.org</p>
 	    {% include "tweet-viewer.html" %}
 	  </div>
   </div>
@@ -99,9 +100,9 @@
       <h3>TRANSIT APP GALLERY</h3>
       <p>Public transit data makes apps like these possible:</p>
       <div class="app-scroller">
-        <h6>Previous 3</h6>
+        <div id="up-control" class="clickable"><label>Previous</label></div>
         <div id="app-scroll-content">
-          <div class="scroll-item"> <a href=""><img src="{% static_url /images/appthumbs/app1.gif %}" /></a>
+          <div class="scroll-item first"> <a href=""><img src="{% static_url /images/appthumbs/app1.gif %}" /></a>
             <h5><a href="">Walk Score</a></h5>
             <p>Walk Score uses open transit data to show transit stops near a home.</p>
           </div>
@@ -114,7 +115,8 @@
             <p>Walk Score uses open transit data to show transit stops near a home.</p>
           </div>
         </div>
-        <h6>Next 3</h6>
+        <div id="down-control" class="clickable"><label>Next</label></div>
+        <div id="app-gallery-button" onclick='trackNavigationNewWindow("", "featured-apps", "view app gallery")'></div>
       </div>
     </div>
   </div>

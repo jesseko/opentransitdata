@@ -9,18 +9,29 @@
 	  <h1><a href="{% url home %}">Open Transit Data</a></h1>
 	  <h2>Make public data public</h2>
 	  <p id="nav"><a href="">Blog</a> &nbsp; <a href="">About</a> &nbsp; <a href="">FAQ</a> &nbsp; <a href="">Contact</a></p>
+	  <div id="friends-and-followers">
+		  <div class="clickable2" onclick='trackNavigationNewWindow("http://twitter.com/opentransitdata", "header", "follow us", "twitter")'>
+		  	<div class='friend-twitter'></div>
+		  	<p>Follow us</p>
+		  </div>
+		  <div class="clickable2" onclick='trackNavigationNewWindow("http://www.facebook.com/pages/Open-Transit-Data/328347565520?created#/pages/Open-Transit-Data/328347565520?v=wall", "header", "follow us", "facebook")'>
+		  	<div class='friend-facebook'></div>
+		  	<p>Friend us</p>
+		  </div>
+		</div>
+
   {% endblock %}
 </div>
 <div id="lede">
 	{% block lede %}
-  	<p>There are 574 transit agencies in the U.S., but only 43 make their data available to the public. <a href="">What's in it for me?</a></p>
+  	<p>There are 574 transit agencies in the U.S., but only 43 make their data available to the public. <a href="">Why?</a></p>
   {% endblock %}
 </div>
 
 <div id="outer-wrapper">{% block content %} &nbsp; {% endblock %}</div>
 <div id="footer">
 	<a id="front-seat-logo" href="http://www.frontseat.org"><img src="{% static_url /images/front-seat-logo.gif %}" /></a>
-	<a id="gtfs-data-exchange-logo" href="http://www.gtfs-data-exchange.com/"><img src="{% static_url /images/gtfs-data-exchange-logo.gif %}" /></a>
+	<p id="gtfs-data-exchange-logo"><a href="http://www.gtfs-data-exchange.com/"><img src="{% static_url /images/gtfs-data-exchange-logo.gif %}" /></a>Data provided by GTFS Data Exchange </p>
 </div>
 </body>
 </html>
