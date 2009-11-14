@@ -1,11 +1,12 @@
-from .forms import ExamplePetitionForm
+from .forms import PetitionForm
 from .utils import render_to_response, redirect_to, not_implemented, login_required
-from .models import ExamplePetitionModel
+from .models import PetitionModel
 from django.http import HttpResponseRedirect
 
 def home(request):
-    num_petitions = ExamplePetitionModel.all().count()
-    return render_to_response(request, 'home.html', {'num_petitions': num_petitions})   
+    petition_form = PetitionForm()
+    num_petitions = PetitionModel.all().count()
+    return render_to_response(request, 'home.html', {'petition_form': petition_form, 'num_petitions': num_petitions})   
     
 def example_petition_form(request):
     # This example page handles the petition form!
@@ -13,9 +14,9 @@ def example_petition_form(request):
     # Again, it is only an example!    
     
     if request.method == 'POST':
-        form = ExamplePetitionForm(request.POST)
+        form = PetitionForm(request.POST)
         if form.is_valid():
-            model = ExamplePetitionModel()
+            model = PetitionModel()
             model.name = form.cleaned_data['name']
             model.email = form.cleaned_data['email']
             model.city = form.cleaned_data['city']
@@ -24,7 +25,7 @@ def example_petition_form(request):
             model.put()
             return redirect_to('example_petition_success')
     else:
-        form = ExamplePetitionForm()
+        form = PetitionForm()
         
     return render_to_response(request, 'example_petition_form.html', {'form': form})
 

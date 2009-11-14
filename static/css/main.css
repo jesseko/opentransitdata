@@ -31,15 +31,18 @@
 		font-size:18px; 
 	}
 	h3 {
-		font:21px "Arial Black", Helvetica, sans-serif;
+		font:21px/21px "Arial Black", Helvetica, sans-serif;
 		font-weight: normal; 
-		margin:  4px 0 7px 0;
+		margin:  0 0 7px 0;
+		padding: 0;
 	}
 	h4 {
 		font-size:14px;
+		line-height: 14px;
 		font-weight: normal;
 		color: #c76402; 
-		margin:  0 0 4px 0;
+		margin:  0;
+		padding: 0;
 	}
 	h5 {
 		font-size:12px; 
