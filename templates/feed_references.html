@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for feed_ref in all_references %}
+<a href="{{feed_ref.ref.url}}">{{feed_ref.ref.name}}</a> ({{feed_ref.ago}} ago) <a href="{{feed_ref.ref.gtfs_url}}">feed</a><br>
+{% endfor %}
+    
+{% endblock %}
