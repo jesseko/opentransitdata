@@ -1,9 +1,9 @@
 from django import forms
-from .models import ExamplePetitionModel
+from .models import PetitionModel
 
 # NOTE DAVEPECK: this is an example only. Ignore as you see fit!
 
-class ExamplePetitionForm(forms.Form):  
+class PetitionForm(forms.Form):  
     name = forms.CharField(max_length=128, min_length=6, label=u"Name")
     email = forms.EmailField(label=u"Email")
     city = forms.CharField(max_length=64, min_length=3, label=u"City")
