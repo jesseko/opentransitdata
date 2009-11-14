@@ -21,7 +21,6 @@ from django.utils.http import urlquote
 from django.template import RequestContext
 import django.shortcuts
 from django.conf import settings
-import simplejson as json
 
 try:
     from functools import update_wrapper
