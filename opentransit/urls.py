@@ -8,4 +8,6 @@ urlpatterns += patterns(
     url('^$', 'home', name='home'),
     url('^example_petition_form$', 'example_petition_form', name='example_petition_form'),
     url('^example_petition_success$', 'example_petition_success', name='example_petition_success'),
+    url('^update_feed_references$', 'update_feed_references', name='update_feed_references'),
+    url('^feed_references$', 'feed_references', name='feed_references'),
 )

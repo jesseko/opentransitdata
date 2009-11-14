@@ -22,3 +22,15 @@ class Agency(db.Model):
     twitter = db.StringProperty()
     contact_email = db.EmailProperty()
     updated = db.DateTimeProperty()
+    
+class FeedReference(db.Model):
+    date_last_updated = db.FloatProperty()
+    feed_baseurl      = db.LinkProperty()
+    name              = db.StringProperty()
+    area              = db.StringProperty()
+    url               = db.LinkProperty()
+    country           = db.StringProperty()
+    gtfs_url          = db.LinkProperty()
+    state             = db.StringProperty()
+    license_url       = db.LinkProperty()
+    date_added        = db.FloatProperty()

@@ -62,26 +62,18 @@
 	  </div>
   
     <div id="recently-added-list">
-      <h4>43 agencies</h4>
+      <h4>{{new_refs.count}} agencies</h4>
       <h3>RECENTLY MADE PUBLIC</h3>
       <ol>
+        {% for feed_ref in new_refs|slice:":3" %}
         <li>
-          <h5>Chicago</h5>
+          <h5>{{feed_ref.name}}</h5>
           <p><a href="">email</a> twitter: @nytsubwayscoop<br />
             CEO: Jay H Walter</p>
         </li>
-        <li>
-          <h5>Cleveland</h5>
-          <p><a href="">email</a> twitter: @nytsubwayscoop<br />
-            CEO: Jay H Walter</p>
-        </li>
-        <li>
-          <h5>Kansas City</h5>
-          <p><a href="">email</a> twitter: @nytsubwayscoop<br />
-            CEO: Jay H Walter</p>
-        </li>
+        {% endfor %}
       </ol>
-      <p><a href="">View all</a></p>
+      <p><a href="feed_references">View all</a></p>
     </div>
 	</div>
   <div id="middle-col">
