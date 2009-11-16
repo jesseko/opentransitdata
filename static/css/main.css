@@ -3,7 +3,7 @@
 	pre,code,address,caption,cite,code,em,strong,th { font-size: 1em; font-weight: normal; font-style: normal; }
 	h1,h2,h3,h4,h5,h6,strong { font-weight: bold; margin: 0; padding: 0; }
 	cite, em { font-style:italic; }
-	ul, ol { margin: 0px 0px 8px 20px; }
+	ul, ol { margin: 0 0 0 20px; }
 	fieldset,img { border: 0; }
 	caption,th { text-align: left; }
 	table { border-collapse: collapse; border-spacing: 0; }
@@ -18,12 +18,33 @@
 		display: inline;
 	}	
 	
+	div.clickable, div.clickable2, div.clickable *, div.clickable2 * {
+		cursor: pointer;
+		overflow: hidden;
+	}
+	div.clickable label, div.clickable2 label {
+		color: #cf7200;
+		line-height: 12px;
+		display: block;
+	}
+	div.clickable:hover label {
+		color: #628dc7;
+	}
+	div.clickable2 {
+		border: 1px solid #fff;
+		background-color: #fff;
+	}
+	div.clickable2:hover {
+		border-color: #ccc;
+		background-color: #f7f7f7;
+	}
+	
 /*********** Fonts ****************/
 	h1,h2,h3,h4,h5,h6 { 
 		font-family: "trebuchet ms", Geneva, Arial, Helvetica, sans-serif;
-		color: #c76402;
-		padding: 0;
+		color: #666;
 	}
+	
   h1 {
 		font-size:55px; 
 	}
@@ -33,24 +54,22 @@
 	h3 {
 		font:21px/21px "Arial Black", Helvetica, sans-serif;
 		font-weight: normal; 
-		margin:  0 0 7px 0;
+		margin:  0 0 5px 0;
 		padding: 0;
 	}
 	h4 {
 		font-size:14px;
 		line-height: 14px;
 		font-weight: normal;
-		color: #c76402; 
-		margin:  0;
+		margin-top:  14px;
 		padding: 0;
 	}
 	h5 {
 		font-size:12px; 
-		color: #b14900;
 	}
 	h6 {
-		font-size:11px; 
-		color: #b14900;
+		font-size:12px;
+		line-height:12px; 
 	}
 	
 	#no-data-list h3 { color: #f72e2e; }
@@ -64,33 +83,30 @@
 	#recently-added-list h4 { color: #516d57; }
 	
   p, ul, ol, blockquote, label {
-		font-size:12px; 
-		font-family:Verdana, Arial, Helvetica, sans-serif;
-		color: #444;
+		font:12px/16px Verdana, Arial, Helvetica, sans-serif;
+		color: #555;
 	}
 	ul, ol {
 		padding-left: 5px;
 	}
-  p {
-		line-height: 17px;
-		padding: 0 0 9px 0;
-		margin: 0;
-	}	
 	p.p2 {
 		font-size:10px; 
 	}
 	cite {
 		font-weight: bold;
 	}
+	.body-content p, p.body {
+		margin: 4px 0 8px 0;
+	}
 	
 
 /*********** Links ****************/
   a, a:link {	
-		color: #b14900;
+		color: #cf7200;
 		cursor: pointer;
 	}	
 	a:hover {
-		color: #777;
+		color: #628dc7;
 		text-decoration: underline;
 	}
 	a {
@@ -98,6 +114,14 @@
 	}
 	a.anchor {
 		cursor: text;
+	}
+	
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: #cf7200;
+		text-decoration: none;
+	}
+	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+		color: #628dc7;
 	}
 	
 	
@@ -113,7 +137,6 @@
 	#lede {
 		background-color: #c6e6f2;
 		width: 100%;
-		margin-bottom: 10px;
 	}
 	#outer-wrapper {
 		margin: 0px auto 0 auto;
@@ -167,26 +190,110 @@
 	#header #nav {
 		position:absolute;
 		top: 3px;
-		right: 20px;
-		text-align:right;
+		left: 720px;
 	}
+	#friends-and-followers {
+		position: absolute;
+		top: 28px;
+		left: 715px;
+	}	
+	#friends-and-followers div {
+		float:left;
+		white-space: nowrap;
+		margin-right: 4px;
+		width: 85px;
+		padding: 3px 4px 2px 0;
+	}
+	#friends-and-followers div label {
+		padding: 4px 0 0 29px;
+		margin-left: 3px;
+		height: 18px;
+		color: #999;
+		font-size: 11px;
+	}
+	#friends-and-followers div.friend-facebook label { background: url(/images/otd-icons.png) 0 0 no-repeat; }
+	#friends-and-followers div.friend-twitter label { background: url(/images/otd-icons.png) 0 -22px no-repeat; }
 	
+/*********** LISTS ****************/
+
+	.agency-list {
+		color: #cf7200;
+	}
+	.agency-list h5 {
+		font: 12px/13px Verdana, Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		padding-bottom: 0;
+		margin: 0;
+	}
+	.agency-list p {
+		font: 11px/14px Verdana, Arial, Helvetica, sans-serif;
+		color: #777;
+	}
+	.agency-list p a {
+		color: #696969;
+	}
+	.agency-list p a:hover {
+		color: #628dc7;
+	}
+	.agency-list li {
+		margin-bottom: 5px;
+	}
+
 /*********** LEDE ****************/
 	
 	#lede p {
-		margin: 0px auto 0 auto;
+		margin: 0 auto 0 auto;
 		width: 950px;
 		font-style: italic;
 		font: 14px/14px;
 		padding: 3px 0 6px 0;
 	}	
 
+/*********** PETITION FORM ****************/
+
+	#petition-form blockquote {
+		margin: 8px 15px 12px 0;
+		font-style: italic;
+		display: block;
+	}
+	#petition-form th {
+		width: 70px;
+	}
+	#petition-form table input {
+		height: 18px;
+		font: 12px/12px Verdana, Arial, Helvetica, sans-serif;
+		margin-bottom: 2px;
+		border: 1px solid #999;
+	}
+	#petition-form .button {
+		margin: 8px 0 6px 75px;
+	}
+
 /*********** APP GALLERY ****************/
 	
-	#app-gallery .scroll-item { 
+	#app-gallery #up-control, #app-gallery #down-control {
+		width: 80px;
+		clear: both;
+		padding: 5px 0;	
+	}
+	#app-gallery #up-control label, #app-gallery #down-control label {
+		height: 12px;
+		font:12px/12px Verdana, Arial, Helvetica, sans-serif;
+		padding: 0 0 0 28px;
+	}
+	#app-gallery #up-control label { background: url(/images/otd-icons.png) 0 -66px no-repeat; }
+	#app-gallery #up-control:hover label { background-position: 0 -90px; }
+	#app-gallery #down-control label { background: url(/images/otd-icons.png) 0 -78px no-repeat; }
+	#app-gallery #down-control:hover label { background-position: 0 -102px; }
+	
+	#app-gallery .scroll-item, #app-gallery .scroll-item-first { 
 		clear: both;
 		margin-top: 10px;
+		min-height: 80px;
 	}
+	#app-gallery .scroll-item-first {
+		margin-top: 0;
+	} 
 	#app-gallery img { 
 		float: left;
 		margin-right: 10px;
@@ -194,14 +301,30 @@
 	}
 	#app-gallery h5 { 
 		color: #c76402; 
-		font-size: 14px;
+		font-size: 13px;
+		font-weight: normal;
 	}
+	#app-gallery-button {
+		background: url(/images/button-view-the-app-gallery.png) 0 0 no-repeat;
+		width: 151px;
+		height: 23px;
+		margin-top: 3px;
+		cursor: pointer;
+	}
+	
 	
 /*********** FOOTER ****************/
 	#footer #gtfs-data-exchange-logo {
 		position: absolute;
 		top: 0;
 		right: 0;		
+		font-size: 11px;
+		color: #999;
+	}
+	#footer #gtfs-data-exchange-logo img{
+	float: right;
+	position: relative;
+	top: -10px;
 	}
 	
 /*********** TWEETS ****************/
@@ -215,6 +338,10 @@
 	.tweet label {
 		float: right;
 		color: #999;
+		font-size:  11px;
+	}
+	.tweet blockquote {
+		color: #666;
 		font-size:  11px;
 	}
 		

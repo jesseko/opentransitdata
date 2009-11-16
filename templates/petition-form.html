@@ -1,10 +1,12 @@
-<p>Add your signature to an open letter demanding open transit data so programmers can create innovative transit apps.
-<p>
-    <form action="" method="POST">
-        <table>
-        {{ petition_form.as_table }}
-        </table>
-
-        <input type="submit" value="I Support Public Data"></input>
-    </form>
-</p>
+<div id="petition-form">
+	<p>Add your name to the following message:</p>
+	<blockquote>"Open transit data lets programmers create innovative apps.  Make public transit data public with a standard format and license."</blockquote>
+	    <form action="" method="POST">
+	        <table>
+	        {{ petition_form.as_table }}
+	        </table>
+	
+	        <input class="button" type="image" src="{% static_url /images/button-support-open-transit-data.png %}" value="I Support Public Data"></input>
+	    </form>
+	</p>
+</div>
