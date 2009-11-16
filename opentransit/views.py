@@ -5,7 +5,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.utils import simplejson as json
 from google.appengine.ext import db
 from google.appengine.ext.db import Key
-
+import time
+import logging
+from google.appengine.api.urlfetch import fetch
 
 def home(request):    
     new_refs = FeedReference.all().order("-date_added")
@@ -67,8 +69,6 @@ def add_app_success_form(request):
 def example_petition_success(request):
     return render_to_response(request, 'example_petition_success.html')
 
-from google.appengine.api.urlfetch import fetch
-import logging
 def replace_feed_references(old_references, new_references):
     # TODO: deleting one at a time is stupid
     # delete all current references
@@ -107,7 +107,6 @@ def update_feed_references(request):
 def pretty_print_time_elapsed(float_time):
     return "%d days %d hours" %(float_time/(3600*24),(float_time%(3600*24))/3600)
     
-import time
 def feed_references(request):
     all_references = FeedReference.all().order("-date_added")
     
@@ -118,7 +117,6 @@ def feed_references(request):
     
     return render_to_response( request, "feed_references.html", {'all_references':refs_with_elapsed} )
 
-import logging
 def edit_agency(request, agency_id):
     agency = Agency.get_by_id( int(agency_id) )
     
