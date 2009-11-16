@@ -26,6 +26,8 @@ class Agency(db.Model):
     phone           = db.StringProperty()
     
 class FeedReference(db.Model):
+    """feed reference models a GTFS Data Exchange entity"""
+    
     date_last_updated = db.FloatProperty()
     feed_baseurl      = db.LinkProperty()
     name              = db.StringProperty()
