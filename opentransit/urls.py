@@ -10,4 +10,5 @@ urlpatterns += patterns(
     url('^example_petition_success$', 'example_petition_success', name='example_petition_success'),
     url('^update_feed_references$', 'update_feed_references', name='update_feed_references'),
     url('^feed_references$', 'feed_references', name='feed_references'),
+    url('^boostrap_agency_list$', 'bootstrap_agency_list', name='bootstrap_agency_list'),
 )

@@ -86,3 +86,8 @@ def feed_references(request):
         refs_with_elapsed.append( {'ref':ref, 'ago':pretty_print_time_elapsed(present_moment-ref.date_added)} )
     
     return render_to_response( request, "feed_references.html", {'all_references':refs_with_elapsed} )
+    
+def bootstrap_agency_list(request):
+    bootstrap_list_url = request.GET['url']
+    
+    return HttpResponse( fetch( bootstrap_list_url ).content )
