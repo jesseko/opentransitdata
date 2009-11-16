@@ -13,5 +13,9 @@ handlers:
 - url: /css
   static_dir: static/css
   
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  login: admin
+  
 - url: /(.*)
   script: bootstrap.py

@@ -21,6 +21,13 @@ if __name__ == '__main__':
         else:
             long_name = name
             short_name = ""
+            
+        # replace adddress newline with comma
+        address = ", ".join(address.strip().split("\n"))
+        
+        # if the url contains the substring "file:" make it blank
+        if "file://" in url:
+            url = None
         
         # find location and state
         loc_area, loc_state = [x.strip() for x in location.split(",")]

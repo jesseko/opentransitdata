@@ -24,6 +24,7 @@ class Agency(db.Model):
     twitter         = db.StringProperty()
     contact_email   = db.EmailProperty()
     updated         = db.DateTimeProperty()
+    phone           = db.StringProperty()
     
 class FeedReference(db.Model):
     date_last_updated = db.FloatProperty()

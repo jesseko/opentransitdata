@@ -6,14 +6,15 @@ import models
 class AgencyLoader(bulkloader.Loader):
     def __init__(self):
         bulkloader.Loader.__init__(self, 'Agency',
-                                   [('long_name', str),
+                                   [('name', str),
                                     ('short_name', str),
-                                    ('area', str),
+                                    ('city', str),
                                     ('state', str),
-                                    ('contact', str),
-                                    ('url', str),
+                                    ('executive', str),
+                                    ('contact_email',str),
+                                    ('agency_url', lambda x: str(x) if x is not None and x!="" else None),
                                     ('phone', str),
                                     ('address', str),
                                    ])
 
-exporters = [AgencyLoader]
+loaders = [AgencyLoader]
