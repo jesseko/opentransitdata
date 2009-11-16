@@ -27,13 +27,13 @@ $(document).ready(function()
     <th>Country</th> 
     <th>Website</th> 
     <th>Twitter</th> 
-    <th>Email</th> 
+    <th>Email</th>
 </tr> 
 </thead> 
 <tbody> 
 {% for a in agencies %}
 <tr> 
-    <td><a href="agency/{{a.key.id}}">{{a.key.id}}</td>
+    <td>{{a.key.id}}</td>
     <td>{{a.name}}</a></td> 
     <td>{{a.tier}}</td> 
     <td>{{a.city}}</td> 
@@ -42,6 +42,7 @@ $(document).ready(function()
     <td>{{a.website}}</td> 
     <td>{{a.twitter}}</td> 
     <td>{{a.contact_email}}</td> 
+    <td><a href="agency/{{a.key.id}}">edit</a></td>
 </tr> 
 {% endfor %}
 </tbody> 
