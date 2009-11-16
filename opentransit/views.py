@@ -91,3 +91,10 @@ def bootstrap_agency_list(request):
     bootstrap_list_url = request.GET['url']
     
     return HttpResponse( fetch( bootstrap_list_url ).content )
+    
+
+def all_agencies(request):
+    agencies = Agency.all().order("name")
+    
+    return render_to_response( request, "agency_list.html", {'agencies':agencies} )
+        
