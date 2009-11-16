@@ -18,5 +18,5 @@ class AddAppForm(forms.Form):
     author_email = forms.EmailField(label = u"Author's Email (kept private)")
     long_description = forms.CharField(min_length = 0, max_length = 2048, widget = forms.widgets.Textarea(attrs = {'rows': 6, 'cols': 32}), label = u"Extended Description")
     tags = forms.CharField(max_length = 256, min_length = 0, label = u"Tags (comma separated)")
-    screen_shot = forms.FileField(label = u"Screen Shot (optional)")
+    screen_shot = forms.ImageField(label = u"Screen Shot (optional)")
     
