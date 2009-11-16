@@ -156,7 +156,7 @@ def edit_agency(request, agency_id):
                                'updated':agency.updated,
                                'phone':agency.phone})
     
-    return render_to_response( request, "agency.html", {'agency':agency, 'form':form} )
+    return render_to_response( request, "edit_agency.html", {'agency':agency, 'form':form} )
     
 def all_agencies(request):
     agencies = Agency.all().order("name")
