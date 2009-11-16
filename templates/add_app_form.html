@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Open Transit Data &raquo; Add A Transit App{% endblock %}
+
+{% block content %}
+    <div id="add-app-form-container" class="body-content">            
+        <h3>ADD A NEW TRANSIT APP</h3>
+        <form id="add-app-form" action="" method="POST" enctype="multipart/form-data">
+            <table>
+            {{ form.as_table }}
+            </table>
+
+            <input type="submit" value="Add The App!"></input>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}

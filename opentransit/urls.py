@@ -12,4 +12,5 @@ urlpatterns += patterns(
     url('^feed_references$', 'feed_references', name='feed_references'),
     url('^agency/(.*)$', 'agency', name='agency'),
     url('^all-agencies$', 'all_agencies'),
+    url('^apps/add/$', 'add_app_form', name='add_app_form'),
 )

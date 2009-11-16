@@ -1,4 +1,4 @@
-from .forms import PetitionForm
+from .forms import PetitionForm, AddAppForm
 from .utils import render_to_response, redirect_to, not_implemented, login_required
 from .models import PetitionModel, FeedReference, Agency
 from django.http import HttpResponseRedirect, HttpResponse
@@ -6,10 +6,10 @@ from django.utils import simplejson as json
 from google.appengine.ext import db
 from google.appengine.ext.db import Key
 
+
 def home(request):    
     new_refs = FeedReference.all().order("-date_added")
-    petition_form = PetitionForm()
-    
+    petition_form = PetitionForm()    
     return render_to_response(request, 'home.html', {'petition_form':petition_form, 'new_refs': new_refs})
     
 def example_petition_form(request):
@@ -32,6 +32,18 @@ def example_petition_form(request):
         form = PetitionForm()
         
     return render_to_response(request, 'example_petition_form.html', {'form': form})
+
+def add_app_form(request):
+    if request.method == 'POST':
+        form = AddAppForm(request.POST, request.FILES)
+        if form.is_valid():
+            # XXX TODO DAVEPECK
+            return redirect_to('home')
+    else:
+        form = AddAppForm()
+        
+    return render_to_response(request, 'add_app_form.html', {'form': form})
+    
 
 def example_petition_success(request):
     return render_to_response(request, 'example_petition_success.html')
