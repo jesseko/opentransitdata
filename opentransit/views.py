@@ -87,13 +87,13 @@ def feed_references(request):
     
     return render_to_response( request, "feed_references.html", {'all_references':refs_with_elapsed} )
     
-def agencies(request):
-    
-    agencies = Agency.all().order('state').order('city').order('name')
-    
-    return render_to_response( request, "agencies.html", {'agencies':agencies} )
-    
 def agency(request, agency_id):
     agency = Agency.get_by_id( int(agency_id) )
     
     return render_to_response( request, "agency.html", {'agency':agency} )
+    
+def all_agencies(request):
+    agencies = Agency.all().order("name")
+
+    return render_to_response( request, "agency_list.html", {'agencies':agencies} )
+

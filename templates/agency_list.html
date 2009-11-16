@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static_url /css/tablesort.css %}" media="screen" />
+{% endblock%}
+
+{% block content %}
+<script type="text/javascript">
+
+$(document).ready(function() 
+    { 
+        $("#agency_list").tablesorter(); 
+    } 
+); 
+   
+</script>
+<table id="agency_list"> 
+<thead> 
+<tr> 
+    <th>Name</th> 
+    <th>Tier</th> 
+    <th>City</th> 
+    <th>State</th> 
+    <th>Country</th> 
+    <th>Website</th> 
+    <th>Twitter</th> 
+    <th>Email</th> 
+</tr> 
+</thead> 
+<tbody> 
+{% for a in agencies %}
+<tr> 
+    <td>{{a.name}}</td> 
+    <td>{{a.tier}}</td> 
+    <td>{{a.city}}</td> 
+    <td>{{a.state}}</td> 
+    <td>{{a.country}}</td> 
+    <td>{{a.website}}</td> 
+    <td>{{a.twitter}}</td> 
+    <td>{{a.contact_email}}</td> 
+</tr> 
+{% endfor %}
+</tbody> 
+</table>
+{% endblock %}
