@@ -7,18 +7,17 @@
 <body>
 <div id="header">
   {% block header %}
-	  <h1><a href="{% url home %}">Open Transit Data</a></h1>
-	  <h2>Make public data public</h2>
-	  <p id="nav"><a href="">Blog</a> &nbsp; <a href="">About</a> &nbsp; <a href="">FAQ</a> &nbsp; <a href="">Contact</a></p>
-	  <div id="friends-and-followers">
-		  <div class="clickable2 friend-twitter" onclick='trackNavigationNewWindow("http://twitter.com/opentransitdata", "header", "follow us", "twitter")'>
-		  	<label>Follow us</label>
-		  </div>
-		  <div class="clickable2 friend-facebook" onclick='trackNavigationNewWindow("http://www.facebook.com/pages/Open-Transit-Data/328347565520?created#/pages/Open-Transit-Data/328347565520?v=wall", "header", "follow us", "facebook")'>
-		  	<label>Friend us</label>
-		  </div>
-		</div>
-
+      <h1><a href="{% url home %}">Open Transit Data</a></h1>
+      <h2>Make public data public</h2>
+      <p id="nav"><a href="">Blog</a> &nbsp; <a href="">About</a> &nbsp; <a href="">FAQ</a> &nbsp; <a href="">Contact</a></p>
+      <div id="friends-and-followers">
+          <div class="clickable2 friend-twitter" onclick='trackNavigationNewWindow("http://twitter.com/opentransitdata", "header", "follow us", "twitter")'>
+            <label>Follow us</label>
+          </div>
+      <div class="clickable2 friend-facebook" onclick='trackNavigationNewWindow("http://www.facebook.com/pages/Open-Transit-Data/328347565520?created#/pages/Open-Transit-Data/328347565520?v=wall", "header", "follow us", "facebook")'>
+              <label>Friend us</label>
+      </div>
+    </div>
   {% endblock %}
 </div>
 <div id="lede">
@@ -28,9 +27,10 @@
 </div>
 
 <div id="outer-wrapper">{% block content %} &nbsp; {% endblock %}</div>
+
 <div id="footer">
-	<a id="front-seat-logo" href="http://www.frontseat.org"><img src="{% static_url /images/front-seat-logo.gif %}" /></a>
-	<p id="gtfs-data-exchange-logo"><a href="http://www.gtfs-data-exchange.com/"><img src="{% static_url /images/gtfs-data-exchange-logo.gif %}" /></a>Data provided by GTFS Data Exchange </p>
+    <a id="front-seat-logo" href="http://www.frontseat.org"><img src="{% static_url /images/front-seat-logo.gif %}" /></a>
+    <p id="gtfs-data-exchange-logo"><a href="http://www.gtfs-data-exchange.com/"><img src="{% static_url /images/gtfs-data-exchange-logo.gif %}" /></a>Data provided by GTFS Data Exchange </p>
 </div>
 </body>
 {% block scripts %}
