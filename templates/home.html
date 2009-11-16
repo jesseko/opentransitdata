@@ -40,3 +40,11 @@
   </div>
 
 {% endblock %}
+
+
+{% block scripts %}
+	<script type="text/javascript" language="javascript" src="{% static_url js/scriptaculous/lib/prototype.js"></script> 
+	<script type="text/javascript" language="javascript" src="{% static_url js/scriptaculous/src/scriptaculous.js"></script> 
+	<script type="text/javascript" language="javascript" src="{% static_url js/jsvalidate.js"></script>
+	<script type="text/javascript" language="javascript" src="{% static_url js/util.js"></script>
+{% endblock %}
