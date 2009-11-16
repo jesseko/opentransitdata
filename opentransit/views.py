@@ -1,16 +1,21 @@
-from .forms import PetitionForm, AddAppForm
+from .forms import PetitionForm, AgencyForm, AddAppForm
 from .utils import render_to_response, redirect_to, not_implemented, login_required
 from .models import PetitionModel, FeedReference, Agency, TransitApp, TransitAppStats
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils import simplejson as json
 from google.appengine.ext import db
 from google.appengine.ext.db import Key
+from google.appengine.api import memcache
+
 
 
 def home(request):    
     new_refs = FeedReference.all().order("-date_added")
-    petition_form = PetitionForm()    
-    return render_to_response(request, 'home.html', {'petition_form':petition_form, 'new_refs': new_refs})
+    petition_form = PetitionForm()
+    
+    agencies = Agency.all()
+    
+    return render_to_response(request, 'home.html', {'petition_form':petition_form, 'new_refs': new_refs, 'agencies':agencies})
     
 def example_petition_form(request):
     # This example page handles the petition form!
@@ -114,14 +119,55 @@ def feed_references(request):
         refs_with_elapsed.append( {'ref':ref, 'ago':pretty_print_time_elapsed(present_moment-ref.date_added)} )
     
     return render_to_response( request, "feed_references.html", {'all_references':refs_with_elapsed} )
-    
+
+import logging
 def agency(request, agency_id):
     agency = Agency.get_by_id( int(agency_id) )
     
-    return render_to_response( request, "agency.html", {'agency':agency} )
+    if request.method == 'POST':
+        form = AgencyForm(request.POST)
+        if form.is_valid():
+            agency.name       = form.cleaned_data['name']
+            agency.short_name = form.cleaned_data['short_name']
+            agency.tier       = form.cleaned_data['tier']
+            agency.city       = form.cleaned_data['city']
+            agency.state      = form.cleaned_data['state']
+            agency.country    = form.cleaned_data['country']
+            agency.postal_code      = form.cleaned_data['postal_code']
+            agency.address          = form.cleaned_data['address']
+            agency.agency_url       = form.cleaned_data['agency_url']
+            agency.executive        = form.cleaned_data['executive']
+            agency.executive_email  = form.cleaned_data['executive_email'] if form.cleaned_data['executive_email'] != "" else None
+            agency.twitter          = form.cleaned_data['twitter']
+            agency.contact_email    = form.cleaned_data['contact_email']
+            agency.updated          = form.cleaned_data['updated']
+            agency.phone            = form.cleaned_data['phone']
+            agency.put()
+    else:
+        form = AgencyForm(initial={'name':agency.name,
+                               'short_name':agency.short_name,
+                               'tier':agency.tier,
+                               'city':agency.city,
+                               'state':agency.state,
+                               'country':agency.country,
+                               'postal_code':agency.postal_code,
+                               'address':agency.address,
+                               'agency_url':agency.agency_url,
+                               'executive':agency.executive,
+                               'executive_email':agency.executive_email,
+                               'twitter':agency.twitter,
+                               'contact_email':agency.contact_email,
+                               'updated':agency.updated,
+                               'phone':agency.phone})
+    
+    return render_to_response( request, "agency.html", {'agency':agency, 'form':form} )
     
 def all_agencies(request):
     agencies = Agency.all().order("name")
+    agencies = memcache.get('all_agencies')
+    if not agencies:
+        agencies = Agency.all().order("name")
+        mc_added = memcache.add('all_agencies', agencies, 60*60)
 
-    return render_to_response( request, "agency_list.html", {'agencies':agencies} )
+    return render_to_response( request, "agency_list.html", {'agencies':agencies, } )
 

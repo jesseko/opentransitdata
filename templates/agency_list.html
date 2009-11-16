@@ -3,7 +3,10 @@
 {% block extra_head %}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 <script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tablesorter.pager.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static_url /css/tablesort.css %}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{% static_url /css/tablesort.pager.css %}" media="screen" />
+
 {% endblock%}
 
 {% block content %}
@@ -11,11 +14,16 @@
 
 $(document).ready(function() 
     { 
-        $("#agency_list").tablesorter(); 
+        $("#agency_list")
+        .tablesorter()
+        .tablesorterPager({container : $('#pager'), size:40}); 
     } 
 ); 
    
 </script>
+
+
+
 <table id="agency_list"> 
 <thead> 
 <tr> 
@@ -27,13 +35,13 @@ $(document).ready(function()
     <th>Country</th> 
     <th>Website</th> 
     <th>Twitter</th> 
-    <th>Email</th> 
+    <th>Email</th>
 </tr> 
 </thead> 
 <tbody> 
 {% for a in agencies %}
 <tr> 
-    <td><a href="agency/{{a.key.id}}">{{a.key.id}}</td>
+    <td>{{a.key.id}}</td>
     <td>{{a.name}}</a></td> 
     <td>{{a.tier}}</td> 
     <td>{{a.city}}</td> 
@@ -42,8 +50,30 @@ $(document).ready(function()
     <td>{{a.website}}</td> 
     <td>{{a.twitter}}</td> 
     <td>{{a.contact_email}}</td> 
+    <td><a href="agency/{{a.key.id}}">edit</a></td>
 </tr> 
 {% endfor %}
 </tbody> 
 </table>
+
+<div id="pager" class="pager">
+	<form>
+		<img src="/images/tablesort/pager/first.png" class="first"/>
+		<img src="/images/tablesort/pager/prev.png" class="prev"/>
+		<input type="text" class="pagedisplay"/>
+		<img src="/images/tablesort/pager/next.png" class="next"/>
+		<img src="/images/tablesort/pager/last.png" class="last"/>
+		<select class="pagesize">
+
+			<option value="25">25</option>
+			<option selected="selected"  value="50">50</option>
+			<option  value="100">100</option>
+            <option  value="200">200</option>
+            <option  value="500">500</option>
+		</select>
+	</form>
+</div>
+<br><br><br>
+
+
 {% endblock %}
