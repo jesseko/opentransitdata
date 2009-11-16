@@ -1,6 +1,6 @@
 from .forms import PetitionForm
 from .utils import render_to_response, redirect_to, not_implemented, login_required
-from .models import PetitionModel, FeedReference
+from .models import PetitionModel, FeedReference, Agency
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils import simplejson as json
 from google.appengine.ext import db
@@ -87,7 +87,13 @@ def feed_references(request):
     
     return render_to_response( request, "feed_references.html", {'all_references':refs_with_elapsed} )
     
-def bootstrap_agency_list(request):
-    bootstrap_list_url = request.GET['url']
+def agencies(request):
     
-    return HttpResponse( fetch( bootstrap_list_url ).content )
+    agencies = Agency.all().order('state').order('city').order('name')
+    
+    return render_to_response( request, "agencies.html", {'agencies':agencies} )
+    
+def agency(request, agency_id):
+    agency = Agency.get_by_id( int(agency_id) )
+    
+    return render_to_response( request, "agency.html", {'agency':agency} )
