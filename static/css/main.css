@@ -269,6 +269,52 @@
 		margin: 8px 0 6px 75px;
 	}
 
+
+/*********** ADD APP FORM ****************/
+
+/* TODO jesse -- i threw these together. fix 'em -- dave */
+
+    #add-app-form blockquote {
+    	margin: 8px 15px 12px 0;
+    	font-style: italic;
+    	display: block;
+    }
+    #add-app-form th {
+    	width: 250px;
+    }
+    
+    #add-app-form tr {
+        height: 32px;
+        min-height: 32px;
+        max-height: 32px;
+    }
+    
+    #add-app-form table input {
+    	height: 18px;
+    	font: 12px/12px Verdana, Arial, Helvetica, sans-serif;
+    	margin-bottom: 2px;
+    	border: 1px solid #999;
+    	width: 250px;
+    	min-width: 250px;
+    }
+
+    #add-app-form table textarea {
+    	font: 12px/12px Verdana, Arial, Helvetica, sans-serif;
+    	margin-bottom: 2px;
+    	border: 1px solid #999;
+    	width: 250px;
+    	min-width: 250px;
+    }
+    
+    #add-app-form table input[type="file"] {
+        border: 0;
+    }
+    
+    #add-app-form .button {
+    	margin: 8px 0 6px 75px;
+    }
+
+
 /*********** APP GALLERY ****************/
 	
 	#app-gallery #up-control, #app-gallery #down-control {
