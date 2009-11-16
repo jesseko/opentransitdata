@@ -28,7 +28,7 @@
 		display: block;
 	}
 	div.clickable:hover label {
-		color: #028dc7;
+		color: #628dc7;
 	}
 	div.clickable2 {
 		border: 1px solid #fff;
@@ -43,13 +43,6 @@
 	h1,h2,h3,h4,h5,h6 { 
 		font-family: "trebuchet ms", Geneva, Arial, Helvetica, sans-serif;
 		color: #666;
-	}
-	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-		color: #cf7200;
-		text-decoration: none;
-	}
-	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-		color: #028dc7;
 	}
 	
   h1 {
@@ -113,7 +106,7 @@
 		cursor: pointer;
 	}	
 	a:hover {
-		color: #028dc7;
+		color: #628dc7;
 		text-decoration: underline;
 	}
 	a {
@@ -121,6 +114,14 @@
 	}
 	a.anchor {
 		cursor: text;
+	}
+	
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: #cf7200;
+		text-decoration: none;
+	}
+	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+		color: #628dc7;
 	}
 	
 	
@@ -229,10 +230,10 @@
 		color: #777;
 	}
 	.agency-list p a {
-		color: #777;
+		color: #696969;
 	}
 	.agency-list p a:hover {
-		color: #028dc7;
+		color: #628dc7;
 	}
 	.agency-list li {
 		margin-bottom: 5px;
