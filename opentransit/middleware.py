@@ -5,11 +5,33 @@
 # turned if off in the settings.py file. But I kept it here just in case...
 #
 
-from .models import User
+import base64
+from django.conf import settings
+from django.http import HttpResponse
+
 from .utils import serialize_dictionary, deserialize_dictionary
 
 SESSION_COOKIE_KEY = "_session"
 USER_KEY_SESSION_KEY = "_user_key"
+
+class SiteWideUsernameAndPassword(object):
+    # Use HTTP Basic Authentication to keep people who haven't been invited out... for now.
+    def process_request(self, request):
+        authorized = False
+        response = None
+        
+        if 'HTTP_AUTHORIZATION' in request.META:
+            auth = request.META['HTTP_AUTHORIZATION'].split()
+            if (len(auth) == 2) and (auth[0].lower() == 'basic'):
+                username, password = base64.b64decode(auth[1]).split(':')
+                authorized = (username == settings.SITE_WIDE_USERNAME) and (password == settings.SITE_WIDE_PASSWORD)
+                        
+        if not authorized:                        
+            response = HttpResponse()
+            response.status_code = 401
+            response['WWW-Authenticate'] = 'Basic realm="%s"' % settings.SITE_WIDE_REALM
+            
+        return response
 
 class AppEngineSecureSessionMiddleware(object):
     def process_request(self, request):

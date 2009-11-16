@@ -8,6 +8,7 @@ INSTALLED_APPS = ['opentransit']
 MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
+    'opentransit.middleware.SiteWideUsernameAndPassword',
 ]
 
 # NOTE davepeck:
@@ -45,3 +46,11 @@ SERIALIZATION_SECRET_KEY = '\xcfB\xf6\xb9\xc4\xe4\xfa\x07\x8atE\xdc\xec\xf9zaR\x
 LOGIN_URL = "/login/"
 
 REDIRECT_FIELD_NAME = "redirect_url"
+
+# Site-Wide HTTP Basic Auth Settings
+# (A little absurd since we're open source, but
+# casual eyes won't see us 'til we're ready.)
+SITE_WIDE_USERNAME = "transit"
+SITE_WIDE_PASSWORD = "appsnearyou"
+SITE_WIDE_REALM = "Open Transit Data"
+
