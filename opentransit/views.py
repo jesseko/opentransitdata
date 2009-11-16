@@ -2,10 +2,7 @@ from .forms import PetitionForm
 from .utils import render_to_response, redirect_to, not_implemented, login_required
 from .models import PetitionModel, FeedReference
 from django.http import HttpResponseRedirect, HttpResponse
-try:
-    import simplejson as json
-except ImportError:
-    import json
+from django.utils import simplejson as json
 from google.appengine.ext import db
 from google.appengine.ext.db import Key
 
@@ -13,7 +10,7 @@ def home(request):
     new_refs = FeedReference.all().order("-date_added")
     petition_form = PetitionForm()
     
-    return render_to_response(request, 'home.html', {'petition_form':petition_form, 'new_refs': new_refs})   
+    return render_to_response(request, 'home.html', {'petition_form':petition_form, 'new_refs': new_refs})
     
 def example_petition_form(request):
     # This example page handles the petition form!
