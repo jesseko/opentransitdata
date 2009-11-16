@@ -5,8 +5,6 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.utils import simplejson as json
 from google.appengine.ext import db
 from google.appengine.ext.db import Key
-from google.appengine.api import memcache
-
 
 def home(request):    
     new_refs = FeedReference.all().order("-date_added")
@@ -92,7 +90,7 @@ def feed_references(request):
     return render_to_response( request, "feed_references.html", {'all_references':refs_with_elapsed} )
 
 import logging
-def agency(request, agency_id):
+def edit_agency(request, agency_id):
     agency = Agency.get_by_id( int(agency_id) )
     
     if request.method == 'POST':
@@ -135,10 +133,6 @@ def agency(request, agency_id):
     
 def all_agencies(request):
     agencies = Agency.all().order("name")
-    agencies = memcache.get('all_agencies')
-    if not agencies:
-        agencies = Agency.all().order("name")
-        mc_added = memcache.add('all_agencies', agencies, 60*60)
 
     return render_to_response( request, "agency_list.html", {'agencies':agencies, } )
 
