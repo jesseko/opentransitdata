@@ -54,7 +54,7 @@ def replace_feed_references(old_references, new_references):
         fr.area              = feed_reference_json['area']
         fr.url               = feed_reference_json['url'].strip()
         fr.country           = feed_reference_json['country']
-        fr.gtfs_url          = feed_reference_json['gtfs_url'].strip()
+        fr.dataexchange_url  = feed_reference_json['dataexchange_url'].strip()
         fr.state             = feed_reference_json['state']
         fr.license_url       = feed_reference_json['license_url'].strip() if feed_reference_json['license_url'] != "" else None
         fr.date_added        = feed_reference_json['date_added']

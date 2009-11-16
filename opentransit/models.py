@@ -30,7 +30,7 @@ class FeedReference(db.Model):
     area              = db.StringProperty()
     url               = db.LinkProperty()
     country           = db.StringProperty()
-    gtfs_url          = db.LinkProperty()
+    dataexchange_url  = db.LinkProperty()
     state             = db.StringProperty()
     license_url       = db.LinkProperty()
     date_added        = db.FloatProperty()
