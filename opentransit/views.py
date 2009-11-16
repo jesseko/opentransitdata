@@ -1,6 +1,6 @@
 from .forms import PetitionForm
 from .utils import render_to_response, redirect_to, not_implemented, login_required
-from .models import PetitionModel, FeedReference
+from .models import PetitionModel, FeedReference, Agency
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils import simplejson as json
 from google.appengine.ext import db
