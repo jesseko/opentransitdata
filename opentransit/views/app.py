@@ -23,7 +23,7 @@ def add_app_form(request):
     if request.method == 'POST':
         form = AddAppForm(request.POST, request.FILES)
         if form.is_valid():
-            
+                        
             return redirect_to('home')
     else:
         form = AddAppForm()

@@ -3,20 +3,14 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('')
 
-#
 # Top Level Views -- Home Page, about, etc.
-#
-
 urlpatterns += patterns(
     'opentransit.views.toplevel',
     url(r'^$', 'home', name='home'),
 )
 
 
-#
 # Petition Views -- Currently only has examples
-#
-
 urlpatterns += patterns(
     'opentransit.views.petition',
     url(r'^example_petition_form$', 'example_petition_form', name='example_petition_form'),
@@ -24,10 +18,7 @@ urlpatterns += patterns(
 )
 
 
-#
 # Feed Views -- Lists, Update Hooks, etc.
-#
-
 urlpatterns += patterns(
     'opentransit.views.feed',
     url(r'^update_feed_references$', 'update_feed_references', name='update_feed_references'),
@@ -35,10 +26,7 @@ urlpatterns += patterns(
 )
 
 
-#
 # Agency Views -- Full URL structure for viewing agencies, and for adding/editing them
-#
-
 urlpatterns += patterns(
     'opentransit.views.agency',
     url('^agency/edit/(.*)$', 'edit_agency', name='edit_agency'),
@@ -46,10 +34,7 @@ urlpatterns += patterns(
 )
 
 
-#
 # Agency Views -- Full URL structure for viewing transit apps, and for adding/editing them
-#
-
 urlpatterns += patterns(
     'opentransit.views.app',
     url(r'^apps/$', 'app_gallery', name='app_gallery'),
