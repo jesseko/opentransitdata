@@ -21,11 +21,14 @@ from django.utils.http import urlquote
 from django.template import RequestContext
 import django.shortcuts
 from django.conf import settings
+from datetime import datetime
 
 try:
     from functools import update_wrapper
 except ImportError:
     from django.utils.functional import update_wrapper  # Python 2.3, 2.4 fallback.
+
+from google.appengine.api.urlfetch import fetch as fetch_url
 
 
 #------------------------------------------------------------------------------
@@ -83,6 +86,14 @@ def redirect_to(view, *args, **kwargs):
     
 def not_implemented(request):
     return render_to_response(request, "not_implemented.html")
+
+
+#------------------------------------------------------------------------------
+# Pretty Printers
+#------------------------------------------------------------------------------
+
+def pretty_print_time_elapsed(float_time):
+    return "%d days %d hours" %(float_time/(3600*24),(float_time%(3600*24))/3600)
 
 
 #------------------------------------------------------------------------------
@@ -241,16 +252,15 @@ def deserialize_dictionary(string, secret_key=settings.SERIALIZATION_SECRET_KEY)
             items = None
     return items
     
-##############
-# Misc Helpers
-##############
 
-from google.appengine.api.urlfetch import fetch
-from datetime import datetime
+#------------------------------------------------------------------------------
+# Spreadsheet!
+#------------------------------------------------------------------------------
+
 def get_spreadsheet(key, worksheetId):
     """ gets helpfully formatted data from a google spreadsheet """
     
-    jsondata = json.loads( fetch( "http://spreadsheets.google.com/feeds/list/%s/%s/public/values?alt=json"%(key,worksheetId) ).content )
+    jsondata = json.loads( fetch_url( "http://spreadsheets.google.com/feeds/list/%s/%s/public/values?alt=json"%(key,worksheetId) ).content )
 
     for entry in jsondata["feed"]["entry"]:
         updated_str = entry['updated']['$t'] 
