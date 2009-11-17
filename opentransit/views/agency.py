@@ -7,7 +7,7 @@ from ..utils.view import render_to_response, redirect_to, not_implemented
 from ..models import Agency
 
 from django.http import HttpResponse
-from ..slug import slugify
+from ..utils.slug import slugify
 
 def edit_agency(request, agency_id):
     agency = Agency.get_by_id( int(agency_id) )
