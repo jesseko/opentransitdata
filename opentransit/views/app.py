@@ -3,7 +3,7 @@ import logging
 from google.appengine.ext import db
 
 from ..forms import AddAppForm
-from ..utils import render_to_response, redirect_to, not_implemented
+from ..utils.view import render_to_response, redirect_to, not_implemented
 from ..models import TransitApp, TransitAppStats
 
 def app_gallery(request):
@@ -23,7 +23,7 @@ def add_app_form(request):
     if request.method == 'POST':
         form = AddAppForm(request.POST, request.FILES)
         if form.is_valid():
-            
+                        
             return redirect_to('home')
     else:
         form = AddAppForm()
