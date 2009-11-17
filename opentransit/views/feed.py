@@ -3,7 +3,8 @@ import logging
 from django.utils import simplejson as json
 from google.appengine.ext import db
 from google.appengine.api.urlfetch import fetch as fetch_url
-from ..utils import render_to_response, redirect_to, not_implemented, pretty_print_time_elapsed
+from ..utils.view import render_to_response, redirect_to, not_implemented
+from ..utils.prettyprint import pretty_print_time_elapsed
 from ..models import FeedReference
 
 def replace_feed_references(old_references, new_references):

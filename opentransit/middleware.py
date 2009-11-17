@@ -9,7 +9,7 @@ import base64
 from django.conf import settings
 from django.http import HttpResponse
 
-from .utils import serialize_dictionary, deserialize_dictionary
+from .utils.securedictionary import serialize_dictionary, deserialize_dictionary
 
 SESSION_COOKIE_KEY = "_session"
 USER_KEY_SESSION_KEY = "_user_key"
